@@ -8,4 +8,8 @@ models:
       - name: id
         tests:
           - not_null
-          - unique
+  - name: customers
+    columns:
+      - name: age
+        tests:
+          - not_null

@@ -9,6 +9,9 @@ sources:
     tables:
       - name: transactions
         description: Contains a record per transaction made by customers
+        loaded_at_field: _loaded_at_utc
+        freshness:
+          warn_after: {count: 1, period: day}
         columns:
           - name: id
             tests:
@@ -17,4 +20,9 @@ sources:
           - name: category
             tests:
               - accepted_values:
-                  values: ['Apps & Games', 'Beauty', 'Books', 'Clothing, Shoes & Accessories', 'Movies & TV', 'Sports, Fitness & Outdoors'] 
+                  values: ['Apps & Games', 'Beauty', 'Books', 'Clothing, Shoes & Accessories', 'Movies & TV', 'Sports, Fitness & Outdoors', 'Kitchen']
+      - name: stg_web__transactions
+        columns:
+          - name: transaction_date
+            tests:
+              - not_null

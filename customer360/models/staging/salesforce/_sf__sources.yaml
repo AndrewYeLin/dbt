@@ -11,5 +11,9 @@ sources:
         columns:
           - name: id
             tests:
-              - unique
               - not_null
+      - name: stg_sf__contacts
+        columns:
+          - name: id
+            tests:
+              - unique
